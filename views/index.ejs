@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="keyword" content="音乐可视化,canvas,passionate,music">
+    <meta name="Description" content="利用HTML5,web Audio A皮以及Css3制作吃成的自适应音乐可视化应用">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="shortcut icon" href="/images/music.png">
+  </head>
+  <body>
+  	<header id="header" class="show"><h1><%= title %></h1></header><!-- /header -->
+  	<div class="content">
+	  	<div class="left">
+	  	  <div id="flag" class="hide" flag="1"></div>
+	      <ul id="list">
+	    	<% music.forEach(function(name,index){ %>
+	    		<li title="<%= name %>" num="<%= index %>"><%= name %> <canvas width="0" height="0" class="icon"></canvas></li>
+	    	<% }) %>
+	   		</ul>	
+	   		
+	  	</div>
+	  	<div class="right">
+	  		<div class="pattern">
+	  			<ul class="type" id="type">
+			  		<li data-type="dot" class="selected"><i>点状</i></li><!-- 间隙 -->
+			  		<li data-type="column"><i>柱状</i></li>
+			  	</ul>
+	  		</div>
+	  		<div id="box">	
+	  		</div>
+	  		
+		</div>	
+	  </div>
+	</div>
+	<footer>
+		<div class="add">
+	   		<a id="addMusic"><input type="file">增加本地歌曲</a>
+	   	</div>
+		<div class="command">
+  			<a><span class="prev"></span></a>
+  			<a ><span id="switch" class="stop"></span> </a>
+  			<a><span class="next"></span> </a>
+  			<a><span class="volume" id="mute"></span><input type="range" id="volume" min="0" max="100" value="40"></a>
+			</div>	
+	</footer>	
+  <script src="javascripts/MusicVisualizer.js"></script>
+  <script src="javascripts/main.js"></script>
+  </body>
+</html>
