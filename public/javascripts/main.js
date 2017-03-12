@@ -137,8 +137,10 @@ $("#mute")[0].onclick = function () {
 		mv.changeVolume(0);	
 		$("#volume")[0].setAttribute("value","0");
 	}
-
 }
+$("#volume")[0].addEventListener("touchmove",function(e){
+	mv.changeVolume(this.value/this.max);
+});
 $("#volume")[0].onchange(); 
 $("#switch")[0].onclick = function (){
 	toggle();
@@ -234,6 +236,5 @@ $("#addMusic").onchange = function(){
 		visualizer.play(e.target.result);
 	}
 	files.readAsArrayBuffer(file);
-
 }
 
